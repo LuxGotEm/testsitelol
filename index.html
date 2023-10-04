@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+@font-face {
+font-family: 'ntts';
+font-style: normal;
+font-weight: 600;
+font-stretch: 100%;
+src: url(/files/fonts/ntts.ttf); /* Don't want to spill the NTTS secret font! */
+}
+@font-face {
+font-family: 'kgs';
+font-style: normal;
+font-weight: 600;
+font-stretch: 100%;
+src: url(/files/fonts/kurzgesagt.ttf); /* Maison Neue Book */
+}
+@font-face {
+font-family: 'apple';
+font-style: normal;
+font-weight: 600;
+font-stretch: 100%;
+src: url(/files/fonts/apple.ttf); /* SF Pro */
+}
+@font-face {
+font-family: 'zakem';
+font-style: normal;
+font-weight: 600;
+font-stretch: 100%;
+src: url(/files/fonts/zakem.ttf); /* Arial Rounded */
+}
+body {
+background-color: black;
+color: white;
+font-family: zakem;
+}
+.content {
+background-color: #282b30;
+position: fixed;
+bottom: -100%;
+left: 0;
+width: 100%;
+height: 100%;
+transition: bottom 1s;
+}
+button {
+width: calc(100% - 20px);
+font-size: 20px;
+border-radius: 5px;
+border: none;
+padding: 5px;
+margin-bottom: 5px;
+cursor: pointer;
+transition: all 0.3s;
+padding: 5px;
+margin-left: 5px;
+color: white;
+font-family: zakem;
+}
+button:hover {
+transform: scale(1.01);
+filter: grayscale(0) !important;
+}
+.buttons:hover button {
+transform: scale(0.99);
+filter: grayscale(1);
+}
+.buttons button:hover {
+transform: scale(1.01);
+}
+.personal:hover button {
+transform: scale(0.99);
+filter: grayscale(1);
+background-color: gray;
+}
+.personal button:hover {
+transform: scale(1.01);
+}
+.ntts {
+font-family: ntts;
+background: url("/files/banners/ntts.png");
+background-size: cover;
+background-position: center;
+text-shadow: 1px 1px 1px lightgray;
+color: white;
+}
+.sound {
+font-family: sans-serif;
+background: url("/files/banners/sw.png");
+background-size: cover;
+background-position: center;
+color: white;
+}
+.kurzgesagt {
+font-family: kgs;
+background: url("/files/banners/kgs.png");
+background-size: cover;
+background-position: center;
+color: white;
+text-shadow: 1px 1px 2px black;
+}
+.apple {
+font-family: apple;
+background: url("/files/banners/apple.png");
+background-size: cover;
+background-position: center;
+color: white;
+}
+.header {
+text-align: center;
+}
+.randomtext {
+text-align: center;
+}
+.randomtext span {
+display: inline-block;
+transition: transform 0.3s;
+}
+.rddiv, .ptab {
+width: 100%;
+height: 100%;
+background-color: #424549;
+position: fixed;
+bottom: -100%;
+left: 0;
+transition: bottom 1s;
+text-align: center;
+}
+.rddiv {
+z-index: 100;
+}
+.rdwarning, .modalheader {
+overflow-wrap: anywhere;
+}
+.rdcancel {
+font-family: zakem;
+background: red;
+color: white;
+margin-left: initial;
+}
+.backbtn {
+font-family: zakem;
+background: dodgerblue;
+color: white;
+margin-left: initial;
+}
+.ptab p {
+font-size: 18px;
+}
+a, a:visited {
+color: dodgerblue;
+transition: 0.2s;
+}
+a:active {
+color: blue;
+}
+meow {
+position: fixed;
+z-index: 10;
+}
+.credits-popup {
+background-color: rgba(0, 0, 0, 0.8);
+position: fixed;
+bottom: -100%;
+left: 0;
+width: 100%;
+height: 100%;
+transition: bottom 1s;
+text-align: center;
+}
+.credits-popup h1 {
+font-family: zakem;
+color: white;
+}
+.credits-popup p {
+font-family: zakem;
+color: white;
+}
+</style>
+<meta charset="UTF-8">
+<meta name="description" content=":3">
+<meta name="keywords" content="zakemski, zakem">
+<meta name="author" content="Zakemski">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Hi, I'm Zakemski" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+<meta property="og:image" content="/files/images/zakemfull.jpg" />
+<meta property="og:description" content=":3" />
+<meta name="theme-color" content="#ff0000">
+<link rel="icon" type="image/png" href="/zakemicon.png">
+<title>Hi, I'm Lux!</title>
+</head>
+<body>
+<h1 style='font-family:sans-serif;text-align:center'>Loading content...</h1>
+<p style='font-family:sans-serif;color:red;text-align:center' class='nojs'>You need to enable Javascript to access this page. Sorry!</p>
+<div class='content'>
+<h1 class='header'>Hi, I'm Lux!</h1>
+<p class='randomtext'></p>
+<div class='personal'>
+<button style='background-color:#5865F2' onclick='personalTab(1)'>About Me</button>
+<button style='background-color:#5865F2' onclick='personalTab(2)'>Socials</button>
+<button style='background-color:#5865F2' onclick='startMeows()'>meow</button>
+</div>
+<h2 class='header'>Cool Discord Servers</h2>
+<div class='buttons'>
+<button class='ntts' onclick='ggButton()'>No Text To Speech</button>
+<button class='sound' onclick='ggButton()'>Sound's World</button>
+<button class='kurzgesagt' onclick='ggButton()'>Kurzgesagt</button>
+<button class='apple' onclick='ggButton()'>r/Apple</button>
+</div>
+<div class='rddiv'>
+<h1 class='rdwarning'>You're about to be redirected to <i><span class='serverinv'>https://discord.gg/</span></i></h1>
+<p class='countdown'>5</p>
+<button class='rdcancel' onclick='cancelRd()'>Cancel</button>
+</div>
+<div class='ptab1 ptab'>
+<h1 class='modalheader'>About Me</h1>
+<p>I'm Lux, a web designer
